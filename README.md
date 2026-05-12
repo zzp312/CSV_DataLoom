@@ -4,7 +4,8 @@
 
 ## 🖼️ 界面预览
 
-<img width="1906" height="949" alt="微信图片_20260511155243_77_2" src="https://github.com/user-attachments/assets/ebf99769-0a83-4244-b187-ff3cdf6d9dfe" />
+<img width="1900" height="944" alt="image" src="https://github.com/user-attachments/assets/d3e74fb1-2dfb-4b42-bb62-19bb98d1f33f" />
+
 
 <img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/ffb65234-4b40-4535-9682-0268eca94032" />
 
