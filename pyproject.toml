@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-data-dual-mode-workbench"
+version = "0.1.0"
+description = "A lightweight desktop ETL tool for data analysts and developers"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Developer", email = "dev@example.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
