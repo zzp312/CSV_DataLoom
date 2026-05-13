@@ -1172,7 +1172,6 @@ HTML_TEMPLATE = """
 
             const selectClause = 'SELECT ' + (selectParts.length > 0 ? selectParts.join(', ') : '*');
             
-            let fromClause = '';
             let mainAlias = canvasState.mainTable || Object.keys(canvasState.tables)[0];
             
             if (!mainAlias || !canvasState.tables[mainAlias]) {
@@ -1182,15 +1181,25 @@ HTML_TEMPLATE = """
             const mainTable = canvasState.tables[mainAlias];
             if (!mainTable) return '';
             
-            fromClause = 'FROM ' + mainTable.tableName + ' AS ' + mainAlias;
+            let fromClause = 'FROM ' + mainTable.tableName + ' AS ' + mainAlias;
 
             if (canvasState.joins.length > 0) {
-                canvasState.joins.forEach(join => {
-                    const leftTable = canvasState.tables[join.leftTable];
-                    const rightTable = canvasState.tables[join.rightTable];
-                    if (!leftTable || !rightTable) return;
-                    fromClause += ' ' + join.joinType + ' ' + rightTable.tableName + ' AS ' + join.rightTable + ' ON CAST(' + join.leftTable + '.' + join.leftField + ' AS VARCHAR) = CAST(' + join.rightTable + '.' + join.rightField + ' AS VARCHAR)';
-                });
+                const addedTables = new Set([mainAlias]);
+                let joinsAdded = true;
+                
+                while (joinsAdded) {
+                    joinsAdded = false;
+                    canvasState.joins.forEach(join => {
+                        const rightTable = canvasState.tables[join.rightTable];
+                        if (!rightTable) return;
+                        
+                        if (addedTables.has(join.leftTable) && !addedTables.has(join.rightTable)) {
+                            fromClause += ' ' + join.joinType + ' ' + rightTable.tableName + ' AS ' + join.rightTable + ' ON ' + join.leftTable + '.' + join.leftField + ' = ' + join.rightTable + '.' + join.rightField;
+                            addedTables.add(join.rightTable);
+                            joinsAdded = true;
+                        }
+                    });
+                }
             }
 
             const whereClause = whereParts.length > 0 ? ' WHERE ' + whereParts.join(' AND ') : '';
