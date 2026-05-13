@@ -4,7 +4,10 @@
 
 ## 🖼️ 界面预览
 
-![CSV DataLoom 界面预览](https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=data%20visualization%20tool%20interface%20with%20canvas%20mode%2C%20tables%20connected%20by%20lines%2C%20SQL%20editor%2C%20data%20preview%20panel%2C%20clean%20modern%20UI%20design%2C%20blue%20and%20white%20color%20scheme&image_size=landscape_16_9)
+<img width="1900" height="944" alt="image" src="https://github.com/user-attachments/assets/d3e74fb1-2dfb-4b42-bb62-19bb98d1f33f" />
+
+
+<img width="1920" height="953" alt="image" src="https://github.com/user-attachments/assets/ffb65234-4b40-4535-9682-0268eca94032" />
 
 ## ✨ 核心特点
 
